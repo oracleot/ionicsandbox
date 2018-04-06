@@ -1,5 +1,25 @@
 <ion-content>
-  <div padding>
-    <h1>My Ionic Sandbox</h1>
+  <div padding text-center>
+    <h1 padding-vertical>Is your API Resource URI valid?</h1>
+    <hr>
+    <p>This app takes in the user input and makes a GET request using the <strong>HTTPClient</strong> service.</p>
+    <p>Also uses the <strong>Toast Controller</strong> api to give a feedback to the user if no url is entered.</p>
+    <p>I also used the <strong>ng-if</strong> directive to pull stunts with the loader and the response div.</p>
+    <br>
+    <ion-list margin-vertical>
+      <ion-item>
+        <ion-input text-center type="text" placeholder="Enter your API resource uri" [(ngModel)]="api_uri"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button color="secondary" (click)="fetchRemoteData()">Check resource Validity</button>
+  </div>
+  <div text-center>
+    <img *ngIf="loader" ion-avatar src="https://thumbs.gfycat.com/AggressiveGrouchyHammerkop-max-1mb.gif" alt="">
+  </div>
+  <div *ngIf="posts" text-center>
+    <div *ngIf="showResponse">
+      <h2 [style.color]="success">Success!</h2>
+      <strong>API Retrieved:</strong> <br>{{posts}}
+    </div>
   </div>
 </ion-content>
