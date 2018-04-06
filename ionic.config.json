@@ -1,0 +1,8 @@
+{
+  "name": "My Ionic Sandbox App",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
