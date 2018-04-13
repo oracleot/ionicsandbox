@@ -35,7 +35,7 @@
     </ion-list>
   </div>
 
-  <div>
+  <div text-center>
     <h1>Get Your Travel Info</h1>
     <ion-list margin-vertical>
       <ion-item>
@@ -44,14 +44,14 @@
       <ion-item>
         <ion-input text-center type="text" placeholder="Enter your destination" [(ngModel)]="userLocation.destination"></ion-input>
       </ion-item>
-      <button ion-button (click)="getTravelInfo()">Get Info</button>
+      <button ion-button full (click)="getTravelInfo()">Get Info</button>
     </ion-list>
 
-    <div *ngIf="response_data">
-      <h3>{{response_data.summary}}</h3>
+    <div *ngIf="response_data" text-center>
+      <h3>Your route is {{response_data.summary}}</h3>
       <p>You are travelling for about <strong>{{legs.distance.text}}</strong></p>
       <ul>
-        <li *ngFor="let step of legs.steps">{{step.html_instructions}}</li>
+        <li *ngFor="let step of legs.steps"><p [innerHTML]="step.html_instructions"></p></li>
       </ul>
     </div>
   </div>
