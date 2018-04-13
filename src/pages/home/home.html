@@ -2,9 +2,12 @@
   <div padding text-center>
     <h1 padding-vertical>Is your API Resource URI valid?</h1>
     <hr>
-    <p>This app takes in the user input and makes a GET request using the <strong>HTTPClient</strong> service.</p>
-    <p>Also uses the <strong>Toast Controller</strong> api to give a feedback to the user if no url is entered.</p>
-    <p>I also used the <strong>ng-if</strong> directive to pull stunts with the loader and the response div.</p>
+    <p>This app takes in the user input and makes a GET request using the
+      <strong>HTTPClient</strong> service.</p>
+    <p>Also uses the
+      <strong>Toast Controller</strong> api to give a feedback to the user if no url is entered.</p>
+    <p>I also used the
+      <strong>ng-if</strong> directive to pull stunts with the loader and the response div.</p>
     <br>
     <ion-list margin-vertical>
       <ion-item>
@@ -19,7 +22,37 @@
   <div *ngIf="posts" text-center>
     <div *ngIf="showResponse">
       <h2 [style.color]="success">Success!</h2>
-      <strong>API Retrieved</strong> <br>{{posts}}
+      <strong>API Retrieved</strong>
+      <br>{{posts}}
+    </div>
+  </div>
+
+  <div margin>
+    <ion-list>
+      <ion-item>
+        <input type="text" placeholder="Enter your IP address" name="ip" [(ngModel)]="ip" (keyup.enter)="checkIp(ip)">
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div>
+    <h1>Get Your Travel Info</h1>
+    <ion-list margin-vertical>
+      <ion-item>
+        <ion-input text-center type="text" placeholder="Enter your location" [(ngModel)]="userLocation.origin"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input text-center type="text" placeholder="Enter your destination" [(ngModel)]="userLocation.destination"></ion-input>
+      </ion-item>
+      <button ion-button (click)="getTravelInfo()">Get Info</button>
+    </ion-list>
+
+    <div *ngIf="response_data">
+      <h3>{{response_data.summary}}</h3>
+      <p>You are travelling for about <strong>{{legs.distance.text}}</strong></p>
+      <ul>
+        <li *ngFor="let step of legs.steps">{{step.html_instructions}}</li>
+      </ul>
     </div>
   </div>
 </ion-content>

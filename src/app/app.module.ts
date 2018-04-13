@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +16,7 @@ import { PulldataProvider } from '../providers/pulldata/pulldata';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -31,4 +31,4 @@ import { PulldataProvider } from '../providers/pulldata/pulldata';
     PulldataProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
